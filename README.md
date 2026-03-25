@@ -12,7 +12,7 @@ No more manual `ssh -R ...` before every debug session.
 | Tool | Notes |
 |------|-------|
 | JDK 21+ | For building only |
-| Gradle 8.11 | The wrapper downloads it automatically |
+| Gradle 8.13+ | The wrapper downloads it automatically |
 | PhpStorm 2025.1+ | Tested on 2025.3.3 |
 | OpenSSH `ssh` / `ssh-add` | Built-in on macOS & Linux; use the Windows OpenSSH feature on Windows |
 
@@ -34,7 +34,17 @@ The distributable ZIP is written to `build/distributions/php-tunnel-debug-plugin
 
 ## Install
 
-1. Open PhpStorm.
+### From GitHub Releases (no build required)
+
+1. Go to the [Releases](../../releases) page and download the latest `php-tunnel-debug-plugin-*.zip`.
+2. Open PhpStorm.
+3. **Settings → Plugins → ⚙ (gear icon) → Install Plugin from Disk…**
+4. Select the downloaded ZIP.
+5. Restart when prompted.
+
+### From source
+
+1. Build the plugin (see [Build](#build) below).
 2. **Settings → Plugins → ⚙ (gear icon) → Install Plugin from Disk…**
 3. Select the ZIP from `build/distributions/`.
 4. Restart when prompted.
