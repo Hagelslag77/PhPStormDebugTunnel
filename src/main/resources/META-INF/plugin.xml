@@ -1,0 +1,38 @@
+<idea-plugin>
+    <id>com.github.phptunneldebug</id>
+    <name>PHP Debug Tunnel</name>
+    <vendor>PHP Debug Tunnel Contributors</vendor>
+
+    <!-- Platform + PHP plugin are both required. -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.jetbrains.php</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <!-- Persistent settings (stored in php-tunnel-debug.xml in the IDE config dir) -->
+        <applicationService
+            serviceImplementation="com.github.phptunneldebug.TunnelSettings"/>
+
+        <!-- Settings page: Settings → Tools → PHP Debug Tunnel -->
+        <applicationConfigurable
+            parentId="tools"
+            id="com.github.phptunneldebug.settings"
+            displayName="PHP Debug Tunnel"
+            instance="com.github.phptunneldebug.TunnelSettingsConfigurable"/>
+
+        <!-- Balloon notification group -->
+        <notificationGroup
+            id="PHP Debug Tunnel"
+            displayType="BALLOON"
+            isLogByDefault="true"/>
+
+    </extensions>
+
+    <applicationListeners>
+        <!-- Intercept the "Start Listening for PHP Debug Connections" action -->
+        <listener
+            class="com.github.phptunneldebug.TunnelActionListener"
+            topic="com.intellij.openapi.actionSystem.ex.AnActionListener"/>
+    </applicationListeners>
+
+</idea-plugin>
