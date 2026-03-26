@@ -26,6 +26,9 @@
             displayType="BALLOON"
             isLogByDefault="true"/>
 
+        <!-- Sync tunnel state when a project opens (handles PhpStorm starting with listen already active) -->
+        <postStartupActivity implementation="com.github.phptunneldebug.TunnelStartupActivity"/>
+
     </extensions>
 
     <applicationListeners>
